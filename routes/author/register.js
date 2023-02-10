@@ -2,6 +2,9 @@ const Author = require("../../models/Author");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const { AuthorValidation } = require("../../utils/AuthorValidation");
+require("dotenv").config();
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const ADMIN_PWD = process.env.ADMIN_PWD;
 module.exports = async (req, res) => {
   try {
     let { email, password, fullName, bio, confirm_password } = req.body;
@@ -42,8 +45,8 @@ module.exports = async (req, res) => {
       host: "smtp-mail.outlook.com",
       port: 587,
       auth: {
-        user: "gmcws@outlook.com",
-        pass: "gomycode2023",
+        user: ADMIN_EMAIL,
+        pass: ADMIN_PWD,
       },
     });
     const output = `
