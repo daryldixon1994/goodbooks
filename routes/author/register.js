@@ -21,13 +21,11 @@ module.exports = async (req, res) => {
         .status(401)
         .json({ status: false, error: error.details[0].message });
     }
-    let existedAuthor = await Author.find({ email });
-
-    console.log("existedAuthor", existedAuthor);
-    if (existedAuthor.length > 0) {
+    let existedAuthor = await Author.find({ $or: [{ email }, { fullName }] });
+    if (existedAuthor.length !== 0) {
       return res.status(401).json({
         status: false,
-        message:
+        existedEmailError:
           "Author is already exist, please try another email or password",
       });
     }
@@ -65,7 +63,7 @@ module.exports = async (req, res) => {
         </h1>
         <h2 style="color: #9932cc">Your acount has been created successfully</h2>
         <h4>One more step, please click the link below to verify your email</h4>
-        <a href="http://localhost:5000/api/author/verifyEmail?email=${email}" taget="_blank">Verify your account</a>
+        <a href="http://localhost:3000/verify-email-author" taget="_blank">Verify your account</a>
       </body>
     </html>
     `;

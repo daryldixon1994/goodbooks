@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     await Review.findByIdAndRemove(reviewId);
     res
       .status(200)
-      .json({ status: true, message: "your review was deleted successfully" });
+      .json({ status: true, message: "Your review was deleted successfully" });
   } catch (error) {
     if (error) throw error;
     res.status(500).json({ status: true, error });

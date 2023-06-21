@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
         id: user._id,
       },
       SECRETKEY,
-      { expiresIn: "60" }
+      { expiresIn: "1d" }
     );
     res.status(200).json({
       status: true,

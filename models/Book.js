@@ -16,6 +16,9 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: String,
+    },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Author",

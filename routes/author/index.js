@@ -12,6 +12,7 @@ router.put(
   upload.single("photo"),
   require("./editBook")
 );
+router.get("/getAuthor", auth, require("./getAuthor"));
 router.delete("/deleteBook/:bookId", auth, require("./deleteBook"));
 router.get("/books", auth, require("./getBooks"));
 router.get("/myBooks", auth, require("./getOwnBooks"));

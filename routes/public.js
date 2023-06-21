@@ -4,7 +4,10 @@ const Book = require("../models/Book");
 
 router.get("/books", async (req, res) => {
   try {
-    const books = await Book.find();
+    const books = await Book.find().populate(
+      "author",
+      "-password -email -isBanned -isVerified -isAuthor"
+    );
     res.status(200).json({
       status: true,
       data: books,

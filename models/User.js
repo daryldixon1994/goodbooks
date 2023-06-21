@@ -16,6 +16,8 @@ const userSchema = new mongoose.Schema(
     },
     userImg: {
       type: String,
+      default:
+        "https://res.cloudinary.com/dc8u6ydtu/image/upload/v1676288068/uploads/loz4wm4yjy00ozlosit9.png",
     },
     isBanned: {
       type: Boolean,

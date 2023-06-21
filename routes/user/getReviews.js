@@ -2,8 +2,12 @@ const Review = require("../../models/Review");
 module.exports = async (req, res) => {
   try {
     let { id } = req.params;
-    const reviews = await Review.find({ book: id }).populate("user");
+    const reviews = await Review.find({ book: id }).populate(
+      "user",
+      "-password -email -isBanned -isAdmin -isVerified -isUser"
+    );
     //   .exec((err, result) => (err ? console.log(err) : console.log(result)));
+
     res.status(200).json({
       status: true,
       data: reviews,

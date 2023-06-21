@@ -40,6 +40,7 @@ module.exports = async (req, res) => {
         isVerified: author.isVerified,
         id: author._id,
         token,
+        isAdmin: false,
       },
     });
   } catch (error) {

@@ -3,10 +3,10 @@ const Joi = require("joi");
 const AuthorValidation = (data) => {
   const schema = Joi.object({
     fullName: Joi.string().empty().required().min(4).messages({
-      "string.empty": "Full Name should not be an empty field",
-      "string.base": "Full Name must be a string",
-      "string.min": "Full Name length must be at least 4 characters long",
-      "any.required": "Full Name is a required field",
+      "string.empty": "FullName should not be an empty field",
+      "string.base": "FullName must be a string",
+      "string.min": "FullName length must be at least 4 characters long",
+      "any.required": "FullName is a required field",
     }),
     bio: Joi.string().empty().required().min(25).messages({
       "string.empty": "Bio should not be an empty field",

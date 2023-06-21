@@ -3,6 +3,7 @@ const router = express.Router();
 const verify = require("../../middlewares/adminVerify");
 router.post("/login", require("./login"));
 router.put("/banUser/:id", verify, require("./banUser"));
+router.put("/unBanUser/:id", verify, require("./unBanUser"));
 router.put("/banAuthor/:id", verify, require("./banAuthor"));
 router.get("/users", verify, require("./getUsers"));
 router.get("/authors", verify, require("./getAuthors"));

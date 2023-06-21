@@ -7,7 +7,6 @@ function PrivateRoute({ children }) {
   const isUser = localStorage.getItem("isUser");
   const isAdmin = localStorage.getItem("isAdmin");
   const isAuthor = localStorage.getItem("isAuthor");
-  console.log("isBanned", isBanned);
   if (
     (token &&
       isBanned === "false" &&

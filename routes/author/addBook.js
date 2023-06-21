@@ -4,7 +4,7 @@ const fs = require("fs");
 module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
-    let { title, rate, desc, releaseDate } = req.body;
+    let { title, rate, desc, releaseDate, category } = req.body;
     const uploader = async (path) => await cloudinary.uploads(path, "uploads");
     if (req.file) {
       let { path } = req.file;
@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
         desc,
         releaseDate,
         author: id,
+        category,
         bookImg: url,
       });
       const book = await newBook.save();

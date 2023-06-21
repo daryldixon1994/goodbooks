@@ -3,7 +3,10 @@ const Author = require("../../models/Book");
 module.exports = async (req, res) => {
   try {
     let { id } = req.params;
-    const book = await Book.findById(id).populate("author");
+    const book = await Book.findById(id).populate(
+      "author",
+      "-password -email -isBanned -isAuthor -isVerified"
+    );
     res.status(200).json({
       status: true,
       data: book,

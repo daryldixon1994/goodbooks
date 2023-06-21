@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
     </h1>
     <h2 style="color: #9932cc">Your acount has been created successfully</h2>
     <h4>One more step, please click the link below to verify your email</h4>
-    <a href="http://localhost:3000/verify-email" taget="_blank">Verify your account</a>
+    <a href="http://localhost:3000/verify-email-user" taget="_blank">Verify your account</a>
   </body>
 </html>
 `;
